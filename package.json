@@ -5,15 +5,27 @@
 	"description": "Open folder in new vscode window. it's useful extension for code repository that holds many projects.",
 	"version": "1.0.0",
 	"author": {
-        "name": "rajratna maitry",
-        "email": "rajratnamaitry@gmail.com"
+		"name": "rajratna maitry",
+		"email": "rajratnamaitry@gmail.com"
 	},
 	"repository": {
-        "type": "git",
-        "url": "https://github.com/rajratnamaitry/open-folder-in-new-vscode.git"
-    },
+		"type": "git",
+		"url": "https://github.com/rajratnamaitry/open-folder-in-new-vscode.git"
+	},
 	"engines": {
 		"vscode": "^1.69.0"
+	},
+	"icon": "open-window-icon.png",
+	"keywords": [
+		"open",
+		"file",
+		"browser",
+		"display",
+		"vscode"
+	],
+	"homepage": "https://github.com/rajratnamaitry/open-folder-in-new-vscode",
+	"bugs": {
+		"url": "https://github.com/rajratnamaitry/open-folder-in-new-vscode/issues"
 	},
 	"categories": [
 		"Other"
