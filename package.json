@@ -1,8 +1,17 @@
 {
 	"name": "open-folder-in-new-vscode",
-	"displayName": "open folder in new vscode",
-	"description": "open folder in new vscode window. it's useful extension for code repository that holds many projects.",
-	"version": "0.0.1",
+	"publisher": "rajratnamaitry",
+	"displayName": "Open folder in new vscode",
+	"description": "Open folder in new vscode window. it's useful extension for code repository that holds many projects.",
+	"version": "1.0.0",
+	"author": {
+        "name": "rajratna maitry",
+        "email": "rajratnamaitry@gmail.com"
+	},
+	"repository": {
+        "type": "git",
+        "url": "https://github.com/rajratnamaitry/open-folder-in-new-vscode.git"
+    },
 	"engines": {
 		"vscode": "^1.69.0"
 	},
@@ -10,20 +19,29 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:open-folder-in-new-vscode.helloWorld"
+		"onCommand:open-folder-in-new-vscode.openFolder"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "open-folder-in-new-vscode.helloWorld",
-				"title": "Hello World"
+				"command": "open-folder-in-new-vscode.openFolder",
+				"title": "Open folder in new vscode"
 			}
-		]
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "open-folder-in-new-vscode.openFolder"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "npm run lint",
+		"deploy": "vsce package && vsce publish",
 		"test": "node ./test/runTest.js"
 	},
 	"devDependencies": {

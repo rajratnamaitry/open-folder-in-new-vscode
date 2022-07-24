@@ -17,18 +17,25 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('open-folder-in-new-vscode.helloWorld', function () {
+	let disposable = vscode.commands.registerCommand('open-folder-in-new-vscode.openFolder', function (data) {
 		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from open folder in new vscode!');
+		const terminal = vscode.window.createTerminal({ name: 'New vscode' });
+		// terminal.sendText(`\x1b[31m...opening new vscode window /n '${data.fsPath}'\x1b[0m`);
+		terminal.hide();
+		terminal.sendText(`code '${data.fsPath}'`);
+		setTimeout(function () {
+			terminal.dispose();
+			// Display a message box to the user
+			vscode.window.showInformationMessage(`New folder opened`);
+		},4000);
+		// vscode.window.showInformationMessage('Opening folder in new vscode !...');
 	});
 
 	context.subscriptions.push(disposable);
 }
 
 // this method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
 	activate,
