@@ -15,12 +15,12 @@ that will open a new vs code window.
 
 ### In vscode-extension-samples directory there are multiple extensions example folders. right click on the folder and select 'open folder in new vscode'. 
 
-![rightClick](/images/rightClick.png)
+![rightClick](/rightClick.png)
 
 ### New vscode window will be open with the selected folder. now you can directly run 
 - `npm install` in the terminal, then `F5` to run the sample
 
-![openedProject](/images/openedProject.png)
+![openedProject](/openedProject.png)
 
 
 -----------------------------------------------------------------------------------------------------------
