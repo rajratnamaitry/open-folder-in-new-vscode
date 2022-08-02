@@ -3,7 +3,7 @@
 	"publisher": "rajratnamaitry",
 	"displayName": "Open folder in new vscode",
 	"description": "Open folder in new vscode window. it's useful extension for code repository that holds many projects.",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"author": {
 		"name": "rajratna maitry",
 		"email": "rajratnamaitry@gmail.com"
