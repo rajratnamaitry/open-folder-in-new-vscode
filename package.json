@@ -3,7 +3,7 @@
 	"publisher": "rajratnamaitry",
 	"displayName": "Open folder in new vscode",
 	"description": "Quickly open any folder in a new vscode window. Ideal for repositories containing monorepo projects.",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"author": {
 		"name": "rajratna maitry",
 		"email": "rajratnamaitry@gmail.com"
