@@ -1,28 +1,50 @@
-# Open Folder In New Vscode
+# Open folder in new vscode
 
-From the current workspace, directory opens the folder in the new `Visual Studio Code` window. it's a useful extension for 
-a code repository that holds many projects (monorepo).
+Easily open any folder from your current workspace in a new Visual Studio Code window. This extension is especially useful for monorepos or repositories containing multiple projects.
 
-## Requires Visual Studio Code Version: 1.69.0 and above 
+---
+
+## Requirements
+
+- **Visual Studio Code** version **1.80.0** or above
+
+---
+
 ## Features
+
 ### 1.0.0
-You can right-click on any folder from the current workspace and select 'open folder in new vscode' 
-that will open a new vs code window.
+
+- Right-click any folder in your workspace and select **Open folder in new window** to launch it in a separate VS Code window.
+
+### 1.1.0
+
+- **NEW:** Multiple folders can be opened at the same time by selecting them and using the context menu.
+- **NEW:** Improved information messages for better user feedback.
+- **NEW:** Enhanced documentation and menu entry naming for clarity.
+- **NEW:** Updated minimum VS Code engine requirement to `^1.80.0`.
+
+---
 
 ## Usage
 
-> For example https://github.com/Microsoft/vscode-extension-samples holds the number of extension sample folders.
+Suppose you are working in a repository like [vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples), which contains multiple extension sample folders.
 
-### In vscode-extension-samples directory there are multiple extensions example folders. right click on the folder and select 'open folder in new vscode'. 
+1. **Open a Single Folder:**  
+   Right-click on any folder and select **Open folder in new window**.
 
-![rightClick](/rightClick.png)
+   ![rightClick](/rightClick.png)
 
-### New vscode window will be open with the selected folder. now you can directly run 
-- `npm install` in the terminal, then `F5` to run the sample
+Once the new VS Code window opens with your selected folder, you can immediately run:
+- `npm install` in the terminal
+- Press `F5` to launch and debug the sample
 
-![openedProject](/openedProject.png)
+---
 
+## Feedback & Contributions
 
------------------------------------------------------------------------------------------------------------
+- [Report issues](https://github.com/rajratnamaitry/open-folder-in-new-vscode/issues)
+- [View source on GitHub](https://github.com/rajratnamaitry/open-folder-in-new-vscode)
 
-**Enjoy!**
+---
+
+**Enjoy using Open folder in new vscode!**

@@ -1,15 +1,34 @@
-const assert = require('assert');
+import * as assert from 'assert';
+import * as sinon from 'sinon';
+import * as vscode from 'vscode';
 
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
-const vscode = require('vscode');
-// const myExtension = require('../extension');
+suite('Open Folder in New VS Code Extension Test Suite', () => {
+    let terminalStub;
+    let infoMessageStub;
 
-suite('Extension Test Suite', () => {
-	vscode.window.showInformationMessage('Start all tests.');
+    setup(() => {
+        terminalStub = sinon.stub(vscode.window, 'createTerminal').returns({
+            sendText: sinon.spy(),
+            hide: sinon.spy(),
+            dispose: sinon.spy()
+        });
+        infoMessageStub = sinon.stub(vscode.window, 'showInformationMessage');
+    });
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
-	});
+    teardown(() => {
+        terminalStub.restore();
+        infoMessageStub.restore();
+    });
+
+    test('openVscodeFn opens terminal and shows messages', async () => {
+        const openVscodeFn = require('../../../extension').activate.toString().includes('openVscodeFn')
+            ? require('../../../extension').openVscodeFn
+            : require('../../../extension.js').openVscodeFn;
+
+        const fakeUri = { fsPath: 'C:\\fake-folder' };
+        await openVscodeFn(fakeUri);
+
+        assert.ok(terminalStub.calledOnce, 'createTerminal should be called');
+        assert.ok(infoMessageStub.calledWithMatch('Opening folder in new vscode'), 'Should show opening message');
+    });
 });

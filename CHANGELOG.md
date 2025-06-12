@@ -1,9 +1,16 @@
-# Change Log
+# Changelog
 
-All notable changes to the "open-folder-in-new-vscode" extension will be documented in this file.
+## [1.1.0] - 2025-06-12
+### Added
+- Support for opening multiple folders in new VS Code windows from the Explorer context menu.
+- Improved information messages for better user feedback.
+- Enhanced documentation and usage instructions.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+### Changed
+- Updated minimum VS Code engine requirement to ^1.80.0 in `package.json`.
+- Improved menu entry naming for clarity.
 
-## [Unreleased]
+---
 
-- Initial release
+## [1.0.0] - Initial release
+- Open any folder from the workspace in a new VS Code window via the Explorer context menu.
