@@ -5,31 +5,15 @@ const vscode = require('vscode');
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 const openVscodeFn = (uri, uris) => {
-	const folders = uris || [uri];
-	console.log('openVscodeFn called with folders:', folders);
-	if (!vscode.workspace.workspaceFolders || vscode.workspace.workspaceFolders.length === 0) {
-		vscode.window.showErrorMessage('No workspace folders are open.');
-		return;
-	}
-	if (!folders || folders[0] === undefined) {
-		vscode.window.showErrorMessage('No folder selected to open in new VS Code instance.');
+	const folders = (uris && uris.length > 0) ? uris : (uri ? [uri] : []);
+	if (folders.length === 0) {
+		vscode.window.showErrorMessage('No folder selected to open in a new window.');
 		return;
 	}
 	folders.forEach(folderUri => {
-		const folderPath = folderUri.fsPath;
-		const terminal = vscode.window.createTerminal({
-			name: 'New vscode',
-			cwd: folderPath,
-			shellPath: 'code',
-			shellArgs: ['-n', folderPath]
+		vscode.commands.executeCommand('vscode.openFolder', folderUri, {
+			forceNewWindow: true
 		});
-		vscode.window.showInformationMessage(`Opening folder in new vscode !...`);// Display a message in the terminal
-		terminal.hide();
-		terminal.sendText(`code .`);
-		setTimeout(function () {
-			terminal.dispose(); // Display a message box to the user
-			vscode.window.showInformationMessage(`Folder opened in a new vscode!`);
-		}, 7000);
 	});
 }
 /**
